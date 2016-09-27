@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LocationOperator</string>
+    <string name="spinner_title">select</string>
+</resources>
