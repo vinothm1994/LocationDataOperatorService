@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        setTitle("Home");
         sharedPreferences=getSharedPreferences("mydata",Context.MODE_PRIVATE);
 
 
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         locationSwitch.setChecked(true);
-        vehicle=sharedPreferences.getString("vehicle","temp");
+        vehicle=sharedPreferences.getString("vehicle","Start");
         vehicleDBRef=databaseReference.child("Location").child(vehicle);
         vehicleDBRef.child("current").addValueEventListener(new ValueEventListener() {
             @Override

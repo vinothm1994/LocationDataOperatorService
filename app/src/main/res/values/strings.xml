@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">LocationOperator</string>
+    <string name="app_name">Location BroadCaster</string>
     <string name="spinner_title">select</string>
 </resources>
