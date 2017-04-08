@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.vinoth.locationoperator.model.LocationDatas;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -41,7 +42,7 @@ public class LocationServiceGps extends Service {
         databaseReference= FirebaseDatabase.getInstance().getReference();
         locationRef=databaseReference.child("Location");
         sharedPreferences=getSharedPreferences("mydata",Context.MODE_PRIVATE);
-        vehicle=sharedPreferences.getString("vehicle","temp");
+        vehicle=sharedPreferences.getString("vehicle","Start");
         vehicleDBRef=locationRef.child(vehicle);
 
 
@@ -59,17 +60,16 @@ public class LocationServiceGps extends Service {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         listener = new MyLocationListener();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            Toast.makeText(this, " give Permission  ", Toast.LENGTH_SHORT).show();
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 6000, 0, listener);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000, 0, listener);
+        try {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 6000, 0, listener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000, 0, listener);
+        }
+        catch (Exception e){
+
+        }
 
     }
 
@@ -169,19 +169,17 @@ public class LocationServiceGps extends Service {
     private void updateLocation(Location location) {
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
+        String time=getCurrentTimeStamp();
+        String speed= String.valueOf(location.getSpeed());
 
-        DatabaseReference current_DBRef= vehicleDBRef.child("current");
-        current_DBRef.child("latitude").setValue(latitude);
-        current_DBRef.child("longitude").setValue(longitude);
-        current_DBRef.child("Time").setValue(getCurrentTimeStamp());
-        DatabaseReference oldDB=vehicleDBRef.child(getCurrentTimeStamp());
-        oldDB.child("latitude").setValue(latitude);
-        oldDB.child("longitude").setValue(longitude);
-        oldDB.child("Time").setValue(getCurrentTimeStamp());
+        LocationDatas locationDatas=new LocationDatas(latitude,longitude,time,speed);
+        vehicleDBRef.child("current").setValue(locationDatas);
+        vehicleDBRef.child(getCurrentTimeStamp()).setValue(locationDatas);
+
     }
     public static String getCurrentTimeStamp(){
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             String currentDateTime = dateFormat.format(new Date()); // Find todays date
             return currentDateTime;
         } catch (Exception e) {
