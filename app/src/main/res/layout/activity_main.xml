@@ -26,4 +26,14 @@
         android:layout_below="@+id/swLocation"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:onClick="deleteData"
+        android:text="Delete Data"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvResult"
+        android:layout_alignEnd="@+id/swLocation"
+        android:id="@+id/button2" />
 </RelativeLayout>

@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "626667969614",
+    "firebase_url": "https://locationtracker-586c2.firebaseio.com",
+    "project_id": "locationtracker-586c2",
+    "storage_bucket": "locationtracker-586c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626667969614:android:2fba3abb17776eba",
+        "android_client_info": {
+          "package_name": "com.example.vinoth.locationoperator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626667969614-b6fgj3607vlc62kprvgntag63o5s4rib.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vinoth.locationoperator",
+            "certificate_hash": "7057EA6D65B012071CA688C0B63B294A9F78ADB6"
+          }
+        },
+        {
+          "client_id": "626667969614-ebqck1mrhgb3v76fqjtq5rpad3bqjedu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFm8e_pZqwkBM6mtZIbP_J84d3Su-rr6g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626667969614-ebqck1mrhgb3v76fqjtq5rpad3bqjedu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626667969614:android:fcc0953a7cc7a0a6",
+        "android_client_info": {
+          "package_name": "com.example.vinoth.googlemap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626667969614-jocpl9ntqi1h4ggekucngj4bvdk6kb2v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vinoth.googlemap",
+            "certificate_hash": "7ED55A9EC962FC13FBC1CD978057B90879B2F8F9"
+          }
+        },
+        {
+          "client_id": "626667969614-ebqck1mrhgb3v76fqjtq5rpad3bqjedu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFm8e_pZqwkBM6mtZIbP_J84d3Su-rr6g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626667969614-ebqck1mrhgb3v76fqjtq5rpad3bqjedu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

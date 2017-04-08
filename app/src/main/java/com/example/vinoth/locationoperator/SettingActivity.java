@@ -18,7 +18,6 @@ public class SettingActivity extends AppCompatActivity {
     private ListView vehicleListView;
     private DatabaseReference databaseReference;
     private SharedPreferences sharedpreference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +50,6 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor prefsEditor = sharedpreference.edit();
                 prefsEditor.putString("vehicle",data);
                 prefsEditor.apply();
-
-
-
-
             }
         });
 
